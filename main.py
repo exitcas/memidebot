@@ -15,7 +15,9 @@ Este bot tiene solo tres comandos:
 /memide	<= Te mide el amigo
 /acerca	<= Despliega información del bot
 
-Antes de empezar, tené en cuenta que esto no es un clón exacto. Además de los claros comandos con el 'slash', en este bot también hay ligeras modificaciones en las lineas que el bot dice, y como actúa. Eso es todo, ahora podés proseguir. ¡Y suerte titán!""")
+Antes de empezar, tené en cuenta que esto no es un clón exacto. Además de los claros comandos con el 'slash', en este bot también hay ligeras modificaciones en las lineas que el bot dice, y como actúa. Eso es todo, ahora podés proseguir. ¡Y suerte titán!
+
+P.D.: No creo que el bot se actualize después de la v1.0.1""")
 
 def memide(update: Update, context: CallbackContext) -> None:
   update.message.reply_photo(open("imgs/0.jpg", 'rb'), f"Calculando la tula-medida de @{update.effective_user.username}...")
@@ -36,16 +38,16 @@ def memide(update: Update, context: CallbackContext) -> None:
     imagen = "5"
     opinion = "😳<i>!?</i> <b>Menudo pollón!!!</b>"
   time.sleep(3)
-  update.message.reply_photo(open(f"imgs/{imagen}.jpg", 'rb'), f"{opinion} Te mide <b>{tula}cm</b>, @{update.effective_user.username}", reply_to_message_id=True, parse_mode=ParseMode.HTML)
+  update.message.reply_photo(open(f"imgs/{imagen}.jpg", 'rb'), f"{opinion} Te mide <b>{tula}cm</b>, @{update.effective_user.username}", parse_mode=ParseMode.HTML)
 
 def acerca(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text("""<b>MemideBot v1.0.0</b>
+    update.message.reply_text("""<b>MemideBot v1.0.1</b>
 Hecho por Not4xp
 
 Sí te interesa saber como está hecho este bot por dentro, podés encontrar el código fuente en uq.now.sh/memidebot
 
 Saludos al Jotita
-twitch.tv/eljotita""")
+twitch.tv/eljotita""", parse_mode=ParseMode.HTML)
 
 
 updater = Updater(os.getenv("token"))
